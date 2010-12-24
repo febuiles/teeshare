@@ -193,6 +193,37 @@ input[type="image"] {
   vertical-align: middle;
 }
 
+div.field {
+  margin-bottom: 30px;
+}
+
+div.field input[type="text"] {
+  margin-top: 10px;
+  width: 400px;
+}
+
+div.actions a {
+  color: white;
+  background-color: #3C89C8;
+  border-bottom-left-radius: 3px 3px;
+  border-bottom-right-radius: 3px 3px;
+  border-top-left-radius: 3px 3px;
+  border-top-right-radius: 3px 3px;
+  display: block;
+  height: 46px;
+  width: 200px;
+  font-size: 1.4em;
+  font-family: Georgia, Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 46px;
+}
+
+div.actions a:hover {
+  background-color: #387DB5;
+}
+
 .placeholder {
 color: #999;
 }
