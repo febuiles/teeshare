@@ -1,6 +1,9 @@
 require 'open-uri'
 
 class Tee < ActiveRecord::Base
+
+  # Fetches the shirt id, shirt title and shirt image and returns
+  # them as an array (in that order).
   def self.gather_data_from_url(url)
     doc = Nokogiri::HTML(open(url))
 
