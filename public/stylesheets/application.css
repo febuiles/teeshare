@@ -161,7 +161,9 @@ div.shirt li {
   margin-bottom: 5px;
 }
 
-div.shirt li a { color: #3C89C8; }
+div.shirt li a { color: #3C89C8; text-decoration: none; }
+div.shirt li a:hover { color: #3C89C8; text-decoration: underline; }
+
 
 div.shirt h2 a { color: #1B325F; text-decoration: underline;}
 div.shirt h2 a:hover { color: #1B325F; text-decoration: none;}
