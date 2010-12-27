@@ -25,3 +25,11 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+
+def create_tee(opts={})
+  default = { :who => "@febuiles", :name => "Test shirt",
+              :image_url => "fake", :shirt_id => 1337,
+              :link => "http://fake.com"}
+  Tee.create(default.merge(opts))
+end

@@ -2,7 +2,9 @@ require 'open-uri'
 
 class Tee < ActiveRecord::Base
 
-  validates_presence_of :shirt_id, :name, :image_url, :who
+  validates_presence_of :shirt_id, :name, :image_url, :who, :link
+  validates_format_of   :link, :with => URI::regexp(%w(http https))
+
 
   # Fetches the shirt id, shirt title and shirt image and returns
   # them as an array (in that order).
