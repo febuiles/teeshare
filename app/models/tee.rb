@@ -2,6 +2,8 @@ require 'open-uri'
 
 class Tee < ActiveRecord::Base
 
+  validates_presence_of :shirt_id, :shirt_name, :shirt_image_url, :who
+
   # Fetches the shirt id, shirt title and shirt image and returns
   # them as an array (in that order).
   def self.gather_data_from_url(url)
