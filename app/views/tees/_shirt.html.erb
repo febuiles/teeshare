@@ -1,9 +1,9 @@
 <div class="shirt">
-  <img src=<%= shirt.image_url %> />
+  <a href="<%= shirt.link %>"><img src=<%= shirt.image_url %> /></a>
   <h2><%= shirt.name %></h2>
   <ul>
     <% shirt.bought_by.each do |name| %>
-      <li><%= name %></li>
+      <li><a href="http://twitter.com/<%= name.delete("@") %>"><%= name %></a></li>
     <% end %>
   </ul>
 </div>

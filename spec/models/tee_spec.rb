@@ -19,6 +19,8 @@ describe Tee do
                  :image_url => "fake", :shirt_id => 1337)
       Tee.create(:who => "@diegoeche", :name => "Test shirt",
                  :image_url => "fake", :shirt_id => 1337)
+      Tee.create(:who => "@febuiles", :name => "Test shirt",
+                 :image_url => "fake", :shirt_id => 1337)
 
       t = Tee.where("shirt_id = 1337").first
       t.bought_by.should == ["@febuiles", "@diegoeche"]
