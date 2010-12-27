@@ -15,12 +15,9 @@ describe Tee do
 
   describe "#bought_by" do
     it "returns a list of the people that bought a shirt" do
-      Tee.create(:who => "@febuiles", :name => "Test shirt",
-                 :image_url => "fake", :shirt_id => 1337)
-      Tee.create(:who => "@diegoeche", :name => "Test shirt",
-                 :image_url => "fake", :shirt_id => 1337)
-      Tee.create(:who => "@febuiles", :name => "Test shirt",
-                 :image_url => "fake", :shirt_id => 1337)
+      create_tee
+      create_tee(:who => "@diegoeche")
+      create_tee
 
       t = Tee.where("shirt_id = 1337").first
       t.bought_by.should == ["@febuiles", "@diegoeche"]
@@ -29,10 +26,9 @@ describe Tee do
 
   describe ".unique_tees" do
     it "returns a list without repetitions" do
-      Tee.create(:who => "@febuiles", :name => "Test shirt",
-                 :image_url => "fake", :shirt_id => 1337)
-      Tee.create(:who => "@diegoeche", :name => "Test shirt",
-                 :image_url => "fake", :shirt_id => 1337)
+      create_tee
+      create_tee(:who => "@diegoeche")
+
       Tee.where("shirt_id = 1337").length.should > 1
       tees = Tee.unique_tees
       tees.length.should == 1

@@ -147,7 +147,7 @@ margin-right: 15px;
 div.shirt h2 {
   width: 300px;
   float: left;
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 div.shirt ul {
@@ -158,7 +158,13 @@ div.shirt li {
   width: 300px;
   color: #3C89C8;
   font-size: 1em;
+  margin-bottom: 5px;
 }
+
+div.shirt li a { color: #3C89C8; }
+
+div.shirt h2 a { color: #1B325F; text-decoration: underline;}
+div.shirt h2 a:hover { color: #1B325F; text-decoration: none;}
 
 div.search {
 margin-bottom: 30px;
@@ -231,7 +237,6 @@ color: #999;
 p.disclaimer a { color: #FF3366; padding: 0px;}
 p.disclaimer a:visited { color: #FF3366; padding: 0px;}
 
-li { margin-bottom: 5px; }
-li a { color: #3C89C8; }
+
 
 label.error { color: red; margin-left: 10px; }
