@@ -2,7 +2,7 @@ require 'open-uri'
 
 class Tee < ActiveRecord::Base
 
-  validates_presence_of :shirt_id, :shirt_name, :shirt_image_url, :who
+  validates_presence_of :shirt_id, :name, :image_url, :who
 
   # Fetches the shirt id, shirt title and shirt image and returns
   # them as an array (in that order).
@@ -19,5 +19,18 @@ class Tee < ActiveRecord::Base
     id = url.split("/")[4]
 
     [id, title, image]
+  end
+
+  # Returns the names of all the people who bought this shirt.
+  # TODO: Add a new table (UsedBy) with `shirt_id`, and `who` so we don't
+  # repeat the records on Tees. That allows us to remove Tee.unique_tees too.
+  def bought_by
+    Tee.where("shirt_id = #{self.shirt_id}").collect(&:who)
+  end
+
+  # Returns all the tees in the DB without the repetitions that appear when more
+  # than one person buys the same shirt.
+  def self.unique_tees
+    Tee.all(:group => "shirt_id")
   end
 end

@@ -1,16 +1,17 @@
 class TeesController < ApplicationController
   def index
+    @tees = Tee.unique_tees
   end
 
   def new
   end
 
   def create
-    id, shirt_name, shirt_image_url = Tee.gather_data_from_url(params[:link])
+    id, name, image_url = Tee.gather_data_from_url(params[:link])
     who = params[:who]
 
-    tee = Tee.new(:shirt_id => id, :shirt_name => shirt_name,
-                  :shirt_image_url => shirt_image_url, :who => who)
+    tee = Tee.new(:shirt_id => id, :name => name,
+                  :image_url => image_url, :who => who)
 
     if tee.valid? && tee.save!
       redirect_to tees_path

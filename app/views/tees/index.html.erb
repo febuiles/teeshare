@@ -1,30 +1,3 @@
-<div class="shirt">
-  <img src="http://media.threadless.com//imgs/products/1199/636x460design_01.jpg" />
-  <h2>I Love Metal</h2>
-  <ul>
-    <li>@febuiles</li>
-    <li>@diegoeche</li>
-    <li>@toro_duque</li>
-  </ul>
-</div>
-
-<div class="shirt">
-  <img src="http://media.threadless.com//imgs/products/2616/636x460design_01.jpg" />
-  <h2>The Trees</h2>
-  <ul>
-    <li>@febuiles</li>
-    <li>@diegoeche</li>
-    <li>@toro_duque</li>
-  </ul>
-
-</div>
-<div class="shirt">
-  <img src="http://media.threadless.com//imgs/products/2612/636x460design_01.jpg" />
-  <h2>Mo'Deer Nature</h2>
-  <ul>
-    <li>@febuiles</li>
-    <li>@diegoeche</li>
-    <li>@toro_duque</li>
-  </ul>
-
-</div>
+<%= render :partial => "shared/search" %>
+<%= render :partial => "shirt", :collection => @tees %>
+<%= render :partial => "shared/search" %>

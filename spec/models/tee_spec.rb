@@ -12,4 +12,31 @@ describe Tee do
       res.last.should   == "http://media.threadless.com//imgs/products/2337/636x460design_01.jpg"
     end
   end
+
+  describe "#bought_by" do
+    it "returns a list of the people that bought a shirt" do
+      Tee.create(:who => "@febuiles", :name => "Test shirt",
+                 :image_url => "fake", :shirt_id => 1337)
+      Tee.create(:who => "@diegoeche", :name => "Test shirt",
+                 :image_url => "fake", :shirt_id => 1337)
+
+      t = Tee.where("shirt_id = 1337").first
+      t.bought_by.should == ["@febuiles", "@diegoeche"]
+    end
+  end
+
+  describe ".unique_tees" do
+    it "returns a list without repetitions" do
+      Tee.create(:who => "@febuiles", :name => "Test shirt",
+                 :image_url => "fake", :shirt_id => 1337)
+      Tee.create(:who => "@diegoeche", :name => "Test shirt",
+                 :image_url => "fake", :shirt_id => 1337)
+      Tee.where("shirt_id = 1337").length.should > 1
+      tees = Tee.unique_tees
+      tees.length.should == 1
+      tees.first.image_url.should == "fake"
+      tees.first.name.should == "Test shirt"
+      tees.first.shirt_id.should == 1337
+    end
+  end
 end
