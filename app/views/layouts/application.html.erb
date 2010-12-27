@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>TeeShare</title>
     <%= stylesheet_link_tag "reset", "application" %>
     <%= javascript_include_tag :all %>
     <%= csrf_meta_tag %>
@@ -74,7 +74,7 @@
         <div class="other-products">
           <%= image_tag "book.png" %>
           <h3>The Threadless Book</h3>
-          <p>Totalmente recomendado. Incluye algunos de los mejores diseños y ensayos de gente como <a href="#">Seth Godin</a> o <a href="#">Glenn Jones</a>.</p>
+          <p>Totalmente recomendado. Incluye algunos de los mejores diseños y ensayos de gente como <%= link_to "Seth Godin", "http://sethgodin.typepad.com/" %> o <%= link_to "Glenn Jones", "http://www.glennz.co.nz/" %>.</p>
         </div>
 
 
