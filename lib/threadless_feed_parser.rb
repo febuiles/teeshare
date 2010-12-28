@@ -1,3 +1,4 @@
+require 'uri'
 require 'open-uri'
 require 'ostruct'
 module ThreadlessFeedParser
@@ -7,9 +8,10 @@ module ThreadlessFeedParser
 
   module ClassMethods
     # returns an array of shirts with all the new shirts on the Threadless
-    # Atom Feed.
-    def new_tees
-      feed_text = fetch_text_from_feed
+    # Atom Feed. If no feed is specified it will use the default feed URL:
+    # http://feeds.feedburner.com/ThreadlessWeekly
+    def new_tees(feed=nil)
+      feed_text = fetch_text_from_feed(feed)
       links = links_from_atom_feed(feed_text)
       titles = titles_from_atom_feed(feed_text)
       ids = extract_ids_from_links(links)
@@ -18,10 +20,16 @@ module ThreadlessFeedParser
       shirts = []
 
       ids.each_with_index do |id, i|
+        url = URI.parse(links[i])
+
         shirt = OpenStruct.new
         shirt.shirt_id = id
-        shirt.name = titles[i]
-        shirt.link = links[i]
+
+        # remove the 'by ...' from the shirt title
+        shirt.name = titles[i].split(" by")[0]
+        # discard Google Analytics data
+        shirt.link = "http://#{url.host}#{url.path}"
+
         shirt.image_url = imgs[i]
         shirts << shirt
       end
@@ -29,20 +37,22 @@ module ThreadlessFeedParser
     end
 
     # returns an array of all the new shirts on the Threadless Atom Feed that
-    # no one has bought yet.
-    def available_tees
+    # no one has bought yet. If no feed is specified it will use the default feed URL:
+    # http://feeds.feedburner.com/ThreadlessWeekly
+    def available_tees(feed=nil)
       shirts_in_db = Tee.select(:shirt_id).collect(&:shirt_id).uniq
-      new_tees = new_tees()
-      new_tees_ids = new_tees.collect(&:shirt_id)
+      new_shirts = new_tees(feed)
+      new_shirts_ids = new_shirts.collect(&:shirt_id)
 
-      available_shirts = new_tees_ids - shirts_in_db
-      new_tees.reject { |shirt| !available_shirts.include?(shirt.shirt_id) }
+      available_shirts = new_shirts_ids - shirts_in_db
+      new_shirts.reject { |shirt| !available_shirts.include?(shirt.shirt_id) }
     end
 
     protected
     # fetches the Threadless ATOM feed and returns the relevant text.
-    def fetch_text_from_feed
-      doc = Nokogiri::XML(open("http://feeds.feedburner.com/ThreadlessWeekly"))
+    def fetch_text_from_feed(feed)
+      feed ||= open("http://feeds.feedburner.com/ThreadlessWeekly")
+      doc = Nokogiri::XML(feed)
       text = doc.css("item description").text
       Nokogiri::HTML(text)
     end
