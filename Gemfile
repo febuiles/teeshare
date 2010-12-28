@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem "nokogiri"
+gem 'jquery-rails'
 
 group :production do
 #  gem "pg"

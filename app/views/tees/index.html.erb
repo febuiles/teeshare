@@ -1,7 +1,7 @@
 <%= render :partial => "shared/search" %>
 <%= render :partial => "shirt", :collection => @tees %>
-<%= render :partial => "shared/search" %>
 
 <script type="text/javascript">
   $("input#search").quicksearch("div.shirt");
+  $("input.auto-clear").autoclear();
 </script>

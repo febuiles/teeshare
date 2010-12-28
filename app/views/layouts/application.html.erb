@@ -3,7 +3,10 @@
   <head>
     <title>TeeShare</title>
     <%= stylesheet_link_tag "reset", "application" %>
-    <%= javascript_include_tag :all %>
+    <%= javascript_include_tag "jquery.min" %>
+    <%= javascript_include_tag "rails", "jquery.validate", "jquery.autoclear.min" %>
+    <%= javascript_include_tag "jquery.quicksearch" %>
+
     <%= csrf_meta_tag %>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="/favicon.ico" />
