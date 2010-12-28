@@ -49,12 +49,19 @@ module ThreadlessFeedParser
     end
 
     protected
+
     # fetches the Threadless ATOM feed and returns the relevant text.
-    def fetch_text_from_feed(feed)
-      feed ||= open("http://feeds.feedburner.com/ThreadlessWeekly")
-      doc = Nokogiri::XML(feed)
-      text = doc.css("item description").text
-      Nokogiri::HTML(text)
+    def fetch_text_from_feed(feed=nil)
+      if !feed.nil? && !feed.kind_of?(String)
+        raise Exception, "ThreadlessFeedParser: Feed must be a string or nil"
+      end
+
+      if !feed.nil?             # Don't use cache if a string was passed
+        atom_feed = Nokogiri::XML(feed).css("item description").text
+      else
+        atom_feed = read_feed_from_cache
+      end
+      Nokogiri::HTML(atom_feed)
     end
 
     # extracts the shirt links of a Threadless feed.
@@ -82,6 +89,16 @@ module ThreadlessFeedParser
     # returns the image URL for a shirt given its id.
     def build_shirt_image_url(id)
       "http://media.threadless.com/imgs/products/#{id}/636x460design_01.jpg"
+    end
+
+    # reads :atom_feed from cache. Fetches new data from the website if the
+    # data expires (24h).
+    def read_feed_from_cache
+      Rails.cache.fetch(:atom_feed, :expires => 24.hours) do
+        p "me llaman"
+        data = open("http://feeds.feedburner.com/ThreadlessWeekly")
+        Nokogiri::XML(data).css("item description").text
+      end
     end
   end
 end

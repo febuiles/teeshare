@@ -20,6 +20,10 @@ describe ThreadlessFeedParser do
     it "removes the author line (by ...) from the shirt name" do
       @tee.name.should == "Psusennes MMXII"
     end
+
+    it "raises an exception if the feed passed is not a string" do
+      expect { Feed.new_tees([]) }.to raise_error(Exception)
+    end
   end
 
   describe ".new_tees" do
