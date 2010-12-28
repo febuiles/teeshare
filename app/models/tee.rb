@@ -1,6 +1,7 @@
 require 'open-uri'
 
 class Tee < ActiveRecord::Base
+  include ThreadlessFeedParser
 
   validates_presence_of :shirt_id, :name, :image_url, :who, :link
   validates_format_of   :link, :with => URI::regexp(%w(http https))
