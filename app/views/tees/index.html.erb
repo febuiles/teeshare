@@ -1,12 +1,26 @@
 <div class="about">
-<p>En TeeShare compartimos lo que hemos comprado en <%= link_to "Threadless", "http://threadless.com" %>, así no repetimos camiseticas.</p>
+  <p>En TeeShare compartimos lo que hemos comprado en <%= link_to "Threadless", "http://threadless.com" %>, así no repetimos camiseticas.</p>
 </div>
 
 
 <%= render :partial => "shared/search" %>
-<%= render :partial => "shirt", :collection => @tees %>
 
+<div class="page_content">
+  <div class="shirts">
+  <%= render :partial => "shirt", :collection => @tees %>
+  </div>
+  <div class="page_navigation"></div>
+</div>
 <script type="text/javascript">
   $("input#search").quicksearch("div.shirt");
   $("input.auto-clear").autoclear();
+  doPaginate();
+
+  $("#search").keyup(function() {
+    if ($(this).val() === "") {
+      doPaginate();
+    }
+  });
+
+
 </script>

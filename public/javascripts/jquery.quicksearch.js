@@ -39,7 +39,6 @@
 			noresults = true,
 			query = options.prepareQuery(val),
 			val_empty = (val.replace(' ', '').length === 0);
-
 			for (var i = 0, len = rowcache.length; i < len; i++) {
 				if (val_empty || options.testQuery(query, cache[i], rowcache[i])) {
 					options.show.apply(rowcache[i]);
@@ -118,6 +117,7 @@
 				return this;
 			});
 
+
 			return this.go();
 		};
 
@@ -141,6 +141,7 @@
 		return this.each(function () {
 			$(this).bind(options.bind, function () {
 				val = $(this).val();
+                            if (val !== "")
 				e.trigger();
 			});
 		});

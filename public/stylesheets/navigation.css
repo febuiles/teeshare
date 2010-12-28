@@ -1,0 +1,19 @@
+div.page_navigation {
+margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+div.page_navigation a {
+  text-decoration: none; color: #3D89C8;
+  padding: 0 10px;
+}
+
+div.page_navigation a:hover {
+  text-decoration: underline;
+}
+
+div.page_navigation .active_page {
+  background-color: #3D89C8;
+  color: white;
+}
+
