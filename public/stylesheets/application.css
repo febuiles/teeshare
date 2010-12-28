@@ -19,6 +19,10 @@ span {
   font-weight: normal;
 }
 
+form {
+margin-top: 110px;
+
+}
 table {
   border: 0px;
   width: 80px;
@@ -50,6 +54,22 @@ div.content {
   margin-top: 30px;
 }
 
+div.about {
+  margin-bottom: 85px;
+  margin-top: 15px;
+  width: 700px;
+
+}
+
+div.about p {
+  font-family: Georgia, Times New Roman, Times, serif;
+  font-size: 3em;
+  color: #1B325F;
+}
+
+div.about p a { text-decoration: none; color: #3D89C8; }
+div.about p a:visited { color: #3D89C8; }
+
 div.sidebar {
   margin-top: 30px;
   width: 330px;
@@ -61,11 +81,6 @@ div.sidebar p {
   line-height: 1.4em;
 }
 
-p.disclaimer {
-  font-size: 11px;
-  line-height: 1.4em;
-  margin-top: 30px;
-}
 
 
 
@@ -73,6 +88,8 @@ div.suggestions a { color: #3D89C8; font-size: 11px; padding: 0px 2px;}
 div.suggestions a:visited { color: #3D89C8; }
 div.suggestions span a:hover { background-color: #3D89C8; color: white; text-decoration: none; }
 
+
+div.logo { width: 260px; margin: 0 auto; }
 
 div.new-shirt {
   width: 315px;
@@ -235,8 +252,10 @@ div.actions a:hover {
   background-color: #387DB5;
 }
 
-.placeholder {
-color: #999;
+p.disclaimer {
+  font-size: 11px;
+  line-height: 1.4em;
+  margin-top: 30px;
 }
 
 p.disclaimer a { color: #FF3366; padding: 2px 1px;}
@@ -246,7 +265,5 @@ p.disclaimer a:hover { background-color: #FF3366; color: white;}
 p.contact { margin-top: 15px; }
 p.contact span a { padding: 2px 1px; margin-left: 2px;}
 p.contact span a:hover { text-decoration: underline; color: white;}
-
-
 
 label.error { color: red; margin-left: 10px; }

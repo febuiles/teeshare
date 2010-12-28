@@ -30,6 +30,11 @@ class Tee < ActiveRecord::Base
     Tee.all(:group => "shirt_id")
   end
 
+  # returns a list of tees that no one has bought yet.
+  def self.suggested_tees
+    Tee.available_tees.shuffle.take(9)
+  end
+
   # Returns the names of all the people who bought this shirt.
   # TODO: Add a new table (UsedBy) with `shirt_id`, and `who` so we don't
   # repeat the records on Tees. That allows us to remove Tee.unique_tees too.

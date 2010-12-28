@@ -1,11 +1,11 @@
 class TeesController < ApplicationController
   def index
     @tees = Tee.unique_tees
-    @available_tees = Tee.available_tees.shuffle.take(9)
+    @available_tees = Tee.suggested_tees
   end
 
   def new
-    @available_tees = Tee.available_tees
+    @available_tees = Tee.suggested_tees
   end
 
   def create
