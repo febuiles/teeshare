@@ -12,7 +12,6 @@
 
   <div class="actions">
     <%= link_to_function "Guardar", "$('#new_tee_form').submit();" %>
-
   </div>
 <% end %>
 
@@ -21,4 +20,16 @@
         required: "Este campo es obligatorio"
     });
   $("form").validate();
+
+  $(function() {
+    $("form input").keypress(function (e) {
+      if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+        $('form').submit();
+        return false;
+      } else {
+        return true;
+      }
+     });
+  });
+
 </script>
