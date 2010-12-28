@@ -9,7 +9,16 @@ describe Tee do
 
       res.first.should  == "2337"
       res.second.should == "Mr. Cloud's New Scarf"
-      res.last.should   == "http://media.threadless.com//imgs/products/2337/636x460design_01.jpg"
+      res.last.should   == "http://media.threadless.com/imgs/products/2337/636x460design_01.jpg"
+    end
+
+    it "works on spanish URLs" do
+      url = "http://es.threadless.com/product/2013/I_Wish_Procrastination_Was_a_Marketable_Skill"
+      res = Tee.gather_data_from_url(url)
+
+      res.first.should  == "2013"
+      res.second.should == "I Wish Procrastination Was a Marketable Skill"
+      res.last.should   == "http://media.threadless.com/imgs/products/2013/636x460design_01.jpg"
     end
   end
 
