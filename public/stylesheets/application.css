@@ -10,10 +10,6 @@ h2 {
   font-weight: normal;
 }
 
-h3 {
-  color: #3D89C8;
-}
-
 span {
   font-size: 0.8em;
   font-weight: normal;
@@ -267,3 +263,7 @@ p.contact span a { padding: 2px 1px; margin-left: 2px;}
 p.contact span a:hover { text-decoration: underline; color: white;}
 
 label.error { color: red; margin-left: 10px; }
+
+div.other-products h3 a { color: #3D89C8; }
+div.other-products h3 a { color: #3D89C8; font-size: 1em; }
+div.other-products h3 a:visited { color: #3D89C8; font-size: 1em; }

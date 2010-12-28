@@ -48,8 +48,8 @@
 
         <h2>Otros Productos</h2>
         <div class="other-products">
-          <%= image_tag "book.png" %>
-          <h3>The Threadless Book</h3>
+          <%= link_to image_tag("book.png"), "http://www.threadless.com/book" %>
+          <h3><%= link_to "The Threadless Book", "http://www.threadless.com/book" %></h3>
           <p>Totalmente recomendado. Incluye algunos de los mejores diseños y ensayos de gente como <span><%= link_to "Seth Godin", "http://sethgodin.typepad.com/" %></span> o <span><%= link_to "Glenn Jones", "http://www.glennz.co.nz/" %></span>.</p>
         </div>
 
