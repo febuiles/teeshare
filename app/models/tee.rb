@@ -5,6 +5,7 @@ class Tee < ActiveRecord::Base
 
   validates_presence_of :shirt_id, :name, :image_url, :who, :link
   validates_format_of   :link, :with => URI::regexp(%w(http https))
+  validates_length_of   :who, :minimum => 3
 
 
   # Fetches the shirt id, shirt title and shirt image and returns

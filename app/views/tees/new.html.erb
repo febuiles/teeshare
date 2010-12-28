@@ -17,9 +17,15 @@
 
 <script type="text/javascript">
   $.extend($.validator.messages, {
-        required: "Este campo es obligatorio"
+        required: "Este campo es obligatorio",
+        minlength: "Mínimo 3 caracteres"
     });
-  $("form").validate();
+  $("form").validate({
+    rules : {
+    who : {
+      minlength: 3
+    }}
+  });
 
   $(function() {
     $("form input").keypress(function (e) {
