@@ -1,9 +1,11 @@
 class TeesController < ApplicationController
   def index
     @tees = Tee.unique_tees
+    @available_tees = Tee.available_tees.shuffle.take(9)
   end
 
   def new
+    @available_tees = Tee.available_tees
   end
 
   def create

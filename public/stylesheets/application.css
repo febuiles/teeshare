@@ -71,7 +71,7 @@ p.disclaimer {
 
 div.suggestions a { color: #3D89C8; font-size: 11px; padding: 0px 2px;}
 div.suggestions a:visited { color: #3D89C8; }
-div.suggestions a:hover { background-color: #3D89C8; color: white; text-decoration: none; }
+div.suggestions span a:hover { background-color: #3D89C8; color: white; text-decoration: none; }
 
 
 div.new-shirt {
@@ -96,7 +96,7 @@ div.new-shirt a {
 
 div.suggestions {
   width: 315px;
-  height: 850px;
+  height: 900px;
   background-color: #ECF3F9;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -109,6 +109,9 @@ div.suggestions h2 {
   padding-top: 15px;
   margin-bottom: 20px
 }
+
+
+
 div.other-products {
 
   width: 310px;

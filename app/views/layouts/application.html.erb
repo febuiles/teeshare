@@ -26,57 +26,18 @@
       <div class="suggestions">
         <h2>Nadie Tiene Estas Camisas</h2>
         <table>
+          <% @available_tees.each_slice(3) do |shirts| %>
           <tr>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/2612/636x460design_01.jpg" />
-              <a href="#">I Listen to Fake Emo Bands</a>
-            </td>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/2616/636x460design_01.jpg" />
-              <a href="#">The Trees</a>
-            </td>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/1921/636x460design_01.jpg" />
-              <a href="#">Fake T-Shirt Name</a>
-            </td>
+            <%= render :partial => "shared/tee", :collection => shirts %>
           </tr>
-
-          <tr>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/2612/636x460design_01.jpg" />
-              <a href="#">I Listen to Fake Emo Bands</a>
-            </td>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/2616/636x460design_01.jpg" />
-              <a href="#">The Trees</a>
-            </td>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/1921/636x460design_01.jpg" />
-              <a href="#">Threadless Fantastic</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/2612/636x460design_01.jpg" />
-              <a href="#">I Listen to Fake Emo Bands</a>
-            </td>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/2616/636x460design_01.jpg" />
-              <a href="#">The Trees</a>
-            </td>
-            <td>
-              <img src="http://media.threadless.com//imgs/products/1921/636x460design_01.jpg" />
-              <a href="#">Mo'Deer Nature</a>
-            </td>
-          </tr>
+          <% end %>
         </table>
 
         <h2>Otros Productos</h2>
         <div class="other-products">
           <%= image_tag "book.png" %>
           <h3>The Threadless Book</h3>
-          <p>Totalmente recomendado. Incluye algunos de los mejores diseños y ensayos de gente como <%= link_to "Seth Godin", "http://sethgodin.typepad.com/" %> o <%= link_to "Glenn Jones", "http://www.glennz.co.nz/" %>.</p>
+          <p>Totalmente recomendado. Incluye algunos de los mejores diseños y ensayos de gente como <span><%= link_to "Seth Godin", "http://sethgodin.typepad.com/" %></span> o <span><%= link_to "Glenn Jones", "http://www.glennz.co.nz/" %></span>.</p>
         </div>
 
 
