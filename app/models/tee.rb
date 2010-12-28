@@ -26,8 +26,18 @@ class Tee < ActiveRecord::Base
 
   # Returns all the tees in the DB without the repetitions that appear when more
   # than one person buys the same shirt.
+  # Heroku uses PG which doesn't support the hacky GROUP BY so we use DISTINCT ON()
   def self.unique_tees
-    Tee.all(:group => "shirt_id")
+    case ActiveRecord::Base.connection.adapter_name
+      when "PostgreSQL"
+      sql = <<eos
+SELECT DISTINCT ON (tees.shirt_id) tees.shirt_id, tees.name, tees.image_url, tees.who, tees.link
+ FROM tees;
+eos
+        Tee.find_by_sql(sql)
+      else
+        Tee.all(:group => "shirt_id")
+    end
   end
 
   # returns a list of tees that no one has bought yet.
