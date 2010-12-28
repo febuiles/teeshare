@@ -239,9 +239,13 @@ div.actions a:hover {
 color: #999;
 }
 
-p.disclaimer a { color: #FF3366; padding: 0px;}
-p.disclaimer a:visited { color: #FF3366; padding: 0px;}
+p.disclaimer a { color: #FF3366; padding: 2px 1px;}
+p.disclaimer a:visited { color: #FF3366; }
+p.disclaimer a:hover { background-color: #FF3366; color: white;}
+
 p.contact { margin-top: 15px; }
+p.contact span a { padding: 2px 1px; margin-left: 2px;}
+p.contact span a:hover { text-decoration: underline; color: white;}
 
 
 
