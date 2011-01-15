@@ -1,4 +1,4 @@
-$(document).ready(function(){
+jQuery(document).ready(function($){
     $(".suggested-shirt").mouseenter(function(e){
         var imageURL = $(this).children("a").children("img").attr("src");
         if ($(this).children("div.tooltip").length == 0) {
@@ -10,5 +10,10 @@ $(document).ready(function(){
     });
     $(".suggested-shirt").mouseleave(function(e){
         $(this).children("div.tooltip").remove();
+    });
+    
+    $(".page_navigation a").live("click", function(){
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      return false;
     });
 });
