@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'open-uri'
 
 class Tee < ActiveRecord::Base
@@ -5,6 +6,9 @@ class Tee < ActiveRecord::Base
 
   validates_presence_of :shirt_id, :name, :image_url, :who, :link
   validates_format_of   :link, :with => URI::regexp(%w(http https))
+  validates_format_of   :link, :with => /^(?!(.*\/submission\/.*))/,
+                               :message => "El link que estás usando apunta a un submission. Utiliza
+                                            el link a la camiseta en sí."
   validates_length_of   :who, :minimum => 3
 
 

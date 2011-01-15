@@ -8,18 +8,24 @@ class TeesController < ApplicationController
     @available_tees = Tee.suggested_tees
   end
 
+  # TODO Clean this mess, seriously.
   def create
     id, name, image_url = Tee.gather_data_from_url(params[:link])
     who = format_username(params[:who])
 
-    tee = Tee.new(:shirt_id => id, :name => name,
+    @tee = Tee.new(:shirt_id => id, :name => name,
                   :image_url => image_url, :who => who,
                   :link => params[:link])
 
-    if tee.valid? && tee.save!
+    if @tee.valid? && @tee.save!
       redirect_to tees_path
     else
-      raise Exception, "Invalid t-shirt data: #{params[:link]}"
+      if @tee.link =~ /\/submission\//
+        @available_tees = Tee.suggested_tees
+        render :new
+      else
+        raise Exception, "Invalid t-shirt data: #{params[:link]}"
+      end
     end
   end
 

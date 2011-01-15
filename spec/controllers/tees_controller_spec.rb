@@ -31,5 +31,12 @@ describe TeesController do
         post :create, { :link => url, :who => "me" }
       }.to raise_error(Exception, "Invalid t-shirt data: #{url}")
     end
+
+    it "returns an error message if the link is a submissions link" do
+      url = "http://www.threadless.com/submission/61015/Get_some_fresh_air"
+      Tee.stub!(:gather_data_from_url).and_return([])
+      post :create, { :link => url, :who => "me" }
+      response.should render_template("new")
+    end
   end
 end

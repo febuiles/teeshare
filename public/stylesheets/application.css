@@ -277,11 +277,14 @@ div.tooltip {
   -moz-box-shadow: 5px 5px 5px #ccc;
   -webkit-box-shadow: 5px 5px 5px #ccc;
   box-shadow: 5px 5px 5px #ccc;
+  top: 270px; left: 15px;
 }
 
-div.tooltip img { width: 636px; height: 460px; border: 1px solid #1B325F;}
+div.tooltip img { width: 636px; height: 460px; border: 1px solid #1B325F; }
 
-.right {
-  top: 270px;
-  left: 15px;
+span.errors {
+  display: block;
+  font-size: 1em;
+  color: red;
+  margin-bottom: 15px;
 }

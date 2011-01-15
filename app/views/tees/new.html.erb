@@ -1,13 +1,18 @@
 <%= form_tag tees_path, :id => "new_tee_form", :method => :post do %>
+  <% @tee.errors[:link].each do |msg| %>
+    <span class="errors"><%= msg %></span>
+  <% end %>
+
+
   <div class="field">
     <h2>Link a la camiseta</h2>
-    <input type="text" required="true" name="link" id="link" />
+    <input type="text" required="true" name="link" id="link" value="<%= @tee.link %>" />
   </div>
 
 
   <div class="field">
     <h2>¿Cuál es tu usuario de Twitter?</h2>
-    <input type="text" required="true" name="who" id="who" />
+    <input type="text" required="true" name="who" id="who" value="<%= @tee.who %>"/>
   </div>
 
   <div class="actions">
