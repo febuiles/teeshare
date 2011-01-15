@@ -267,3 +267,16 @@ label.error { color: red; margin-left: 10px; }
 div.other-products h3 a { color: #3D89C8; }
 div.other-products h3 a { color: #3D89C8; font-size: 1em; }
 div.other-products h3 a:visited { color: #3D89C8; font-size: 1em; }
+
+div.tooltip {
+  position: absolute;
+  z-index: 999;
+  width: 636px;
+  height: 460px;
+
+}
+
+.right {
+  top: 270px;
+  left: 15px;
+}
