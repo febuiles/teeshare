@@ -6,6 +6,7 @@ class TeesController < ApplicationController
 
   def new
     @available_tees = Tee.suggested_tees
+    @tee = Tee.new(:link => "", :who => "")
   end
 
   # TODO Clean this mess, seriously.

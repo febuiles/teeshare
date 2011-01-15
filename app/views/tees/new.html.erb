@@ -1,6 +1,8 @@
 <%= form_tag tees_path, :id => "new_tee_form", :method => :post do %>
-  <% @tee.errors[:link].each do |msg| %>
-    <span class="errors"><%= msg %></span>
+  <% if @tee && @tee.errors %>
+    <% @tee.errors[:link].each do |msg| %>
+      <span class="errors"><%= msg %></span>
+    <% end %>
   <% end %>
 
 
