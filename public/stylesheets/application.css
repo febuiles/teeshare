@@ -271,10 +271,15 @@ div.other-products h3 a:visited { color: #3D89C8; font-size: 1em; }
 div.tooltip {
   position: absolute;
   z-index: 999;
-  width: 636px;
-  height: 460px;
-
+  background-color: #ECF3F9;
+  padding: 10px;
+  border-radius: 15px 15px;
+  -moz-box-shadow: 5px 5px 5px #ccc;
+  -webkit-box-shadow: 5px 5px 5px #ccc;
+  box-shadow: 5px 5px 5px #ccc;
 }
+
+div.tooltip img { width: 636px; height: 460px; border: 1px solid #1B325F;}
 
 .right {
   top: 270px;
