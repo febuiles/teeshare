@@ -1,11 +1,12 @@
 jQuery(document).ready(function($){
     $(".suggested-shirt").mouseenter(function(e){
-        var imageURL = $(this).children("a").children("img").attr("src");
-        if ($(this).children("div.tooltip").length == 0) {
+        $this = $(this);
+        var imageURL = $("img", $this).attr("src");
+        if ($this.children("div.tooltip").length == 0) {
             var div = $("<div class='tooltip'>");
             var img = $("<img src='" + imageURL +"' />");
             div.append(img);
-            $(this).append(div);
+            $this.append(div);
         }
     });
     $(".suggested-shirt").mouseleave(function(e){

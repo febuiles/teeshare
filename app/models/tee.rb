@@ -43,7 +43,7 @@ SELECT DISTINCT ON (tees.shirt_id) tees.shirt_id, tees.name, tees.image_url, tee
 eos
         Tee.find_by_sql(sql)
       else
-        Tee.all(:group => "shirt_id")
+        Tee.group("shirt_id")
     end
   end
 
